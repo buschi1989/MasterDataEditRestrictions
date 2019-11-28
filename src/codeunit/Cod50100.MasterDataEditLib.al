@@ -29,6 +29,30 @@ codeunit 50100 "Master Data Edit Lib"
         CheckMasterDataEditAllowance(3); // Rename
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::Item, 'OnBeforeInsertEvent', '', true, true)]
+    local procedure MasterDataEditOnBeforeInsertItem(var Rec: Record Item; RunTrigger: Boolean)
+    begin
+        CheckMasterDataEditAllowance(0); // Insert
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::Item, 'OnBeforeModifyEvent', '', true, true)]
+    local procedure MasterDataEditOnBeforeModifyItem(var Rec: Record Item; RunTrigger: Boolean)
+    begin
+        CheckMasterDataEditAllowance(1); // Modify
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::Item, 'OnBeforeDeleteEvent', '', true, true)]
+    local procedure MasterDataEditOnBeforeDeleteItem(var Rec: Record Item; RunTrigger: Boolean)
+    begin
+        CheckMasterDataEditAllowance(2); // Delete
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::Item, 'OnBeforeRenameEvent', '', true, true)]
+    local procedure MasterDataEditOnBeforeRenameItem(var Rec: Record Item; RunTrigger: Boolean)
+    begin
+        CheckMasterDataEditAllowance(3); // Rename
+    end;    
+
     local procedure CheckMasterDataEditAllowance(EditTypePar: Option Insert,Modify,Delete,Rename)
     var
         userSetupLoc: Record "User Setup";
