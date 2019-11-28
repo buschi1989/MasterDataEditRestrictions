@@ -4,7 +4,7 @@
   "publisher": "Kevin Busch",
   "version": "1.0.0.0",
   "brief": "Check allowance for editing master data",
-  "description": "App for checking editing and deleting permissions of master data tables depending on User Setup. Following tables are included: Customer, Item",  
+  "description": "App for checking editing and deleting permissions of master data tables depending on User Setup. Following tables are included: Customer, Vendor and Item",  
   "privacyStatement": "",
   "EULA": "",
   "help": "",
